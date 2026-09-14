@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+:root {
+  --forest: #013220;
+  --forest-light: #0a4d2e;
+  --forest-dark: #001a0f;
+  --gold: #c5a028;
+  --gold-light: #e8c547;
+  --gold-dark: #9a7b1a;
+  --cream: #faf7f2;
+  --cream-dark: #f0ebe3;
+  --charcoal: #2c2c2c;
+}
+
+@theme inline {
+  --color-forest: var(--forest);
+  --color-forest-light: var(--forest-light);
+  --color-forest-dark: var(--forest-dark);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-charcoal: var(--charcoal);
+  --font-serif: var(--font-playfair);
+  --font-script: var(--font-great-vibes);
+  --font-sans: var(--font-lato);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--font-lato), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--gold) 30%, transparent);
+  color: var(--forest-dark);
+}
+
+.gold-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--gold-dark) 0%,
+    var(--gold) 45%,
+    var(--gold-light) 100%
+  );
+}
+
+.gold-text {
+  background: linear-gradient(
+    135deg,
+    var(--gold-dark) 0%,
+    var(--gold) 50%,
+    var(--gold-light) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-padding {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 6rem 2rem;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.whatsapp-float {
+  box-shadow:
+    0 8px 24px color-mix(in srgb, #25d366 35%, transparent),
+    0 2px 8px color-mix(in srgb, var(--forest-dark) 25%, transparent);
+}
+
+.whatsapp-float-pulse {
+  animation: whatsapp-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+.decorative-circle {
+  position: absolute;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+  pointer-events: none;
+}
+
+.leaf-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-8 10-12 20-12 30 0 8 4 15 12 20 8-5 12-12 12-20 0-10-4-20-12-30z' fill='%23013220' fill-opacity='0.03'/%3E%3C/svg%3E");
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  ring: 2px;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold) 50%, transparent);
+}
